@@ -1,13 +1,14 @@
 # NOTES
 
-Built by: Mistral Vibe, Mistral
+Built by: Mistral Vibe, glm-5.3-flash
 
 ## Run
 
 Brief `fast-02-storage-sql` (fast). Port 3002. `make dev` starts the server;
-`/bench` is the one screen. The 100k file builds with `node
-bench/make-100k.mjs` (needs the `.data/seed/` that `make setup` wrote) and
-the server reads it with `LERCH_DB=bench/bench-100k.sqlite make dev`.
+`/bench` is the one screen. The 100k file is generated, not committed:
+`node bench/make-100k.mjs` (needs the `.data/seed/` that `make setup`
+wrote), then the server reads it with `LERCH_DB=bench/bench-100k.sqlite
+make dev`.
 
 ## What it shows
 
@@ -43,7 +44,8 @@ document store would have to beat.
 - `LERCH_DB` env var and `/api/dbinfo` route.
 - `bench/bench-100k.sqlite`: the 10k seed copied ten times, ids shifted per
   prefix, same spaces. Co-occurrence and blocker counts scale 10x; the
-  population shape (levels, states) is unchanged.
+  population shape (levels, states) is unchanged. Gitignored (58 MB);
+  `bench/make-100k.mjs` rebuilds it from the seed.
 
 ## Stack assumptions
 
@@ -53,8 +55,8 @@ document store would have to beat.
 - No test suite — a fast brief. The check is the bench page itself.
 - No policy check and no current-user stub: the only write is Q8's move,
   which acts as `person-1`.
-- The 100k file is committed (58 MB) because `.data/` is rebuilt by
-  `make setup` and the brief wants the measurement to survive.
+- The 100k file is gitignored and rebuilt with `node bench/make-100k.mjs`;
+  only the generator is committed.
 
 ## Cut
 

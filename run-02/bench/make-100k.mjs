@@ -8,8 +8,8 @@
 //   node bench/make-100k.mjs
 //
 // The seed CSVs live in .data/seed, which is gitignored and rebuilt by
-// `make setup`; the generated .sqlite file is committed, so this script only
-// needs to run again if the seed changes.
+// `make setup`; the generated .sqlite file is gitignored too (58 MB) and
+// rebuilt by running this script again.
 
 import { readFileSync, rmSync } from 'node:fs'
 import { dirname, join } from 'node:path'

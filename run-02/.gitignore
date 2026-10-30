@@ -1,0 +1,5 @@
+# The 100k bench database is generated, never committed (58 MB). Rebuild it:
+#   node bench/make-100k.mjs
+bench/*.sqlite
+bench/*.sqlite-wal
+bench/*.sqlite-shm
