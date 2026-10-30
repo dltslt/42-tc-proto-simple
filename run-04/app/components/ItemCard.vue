@@ -7,7 +7,7 @@ const props = defineProps<{ item: Item; size: 'card' | 'chip' }>()
 const { actorName } = useMeta()
 
 const FIELDS = ['title', 'level', 'kanban', 'effort', 'scheduled', 'contributors', 'tags'] as const
-const KEEP = { card: 6, chip: 2 } // how many of FIELDS each size shows
+const KEEP = { card: 6, chip: 1 } // how many of FIELDS each size shows
 const show = (f: (typeof FIELDS)[number]) => FIELDS.indexOf(f) < KEEP[props.size]
 
 const when = computed(() =>
@@ -20,7 +20,7 @@ const initials = (id: string) => actorName(id).slice(0, 2)
 
 <template>
   <!-- draggable + @dragstart: native HTML drag and drop. The item id travels in dataTransfer. -->
-  <div :class="['item', size, item.state]" draggable="true"
+  <div :class="['item', size, item.state]" draggable="true" :title="item.title"
        @dragstart="(e) => e.dataTransfer?.setData('text/item', item.id)">
     <span v-if="show('title')" class="title">{{ item.title }}</span>
     <span v-if="show('level')" class="tag">{{ item.level }}</span>
@@ -39,7 +39,7 @@ const initials = (id: string) => actorName(id).slice(0, 2)
 .item.started { border-left-color: orange; }
 .item.done { border-left-color: seagreen; }
 .card { border: 1px solid var(--line); border-left-width: 3px; border-radius: 4px; padding: 4px 6px; }
-.chip { font-size: 12px; border-radius: 3px; flex-wrap: nowrap; overflow: hidden; white-space: nowrap; }
+.chip { flex-shrink: 0; font-size: 12px; border-radius: 3px; flex-wrap: nowrap; overflow: hidden; white-space: nowrap; }
 .chip .title { overflow: hidden; text-overflow: ellipsis; }
 .title { font-weight: 500; }
 .card .title { flex-basis: 100%; }
