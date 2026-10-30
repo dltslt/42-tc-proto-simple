@@ -114,7 +114,7 @@ At the run root, write one file named `<harness>-<model>` for the harness and mo
 
 ## Skills
 
-- `conventional-commit-message` (`.agents/skills/conventional-commit-message/SKILL.md`) is how a commit message is written. The type in the git workflow below comes from that skill.
+- `git-commit` (`.agents/skills/git-commit/SKILL.md`) is how a commit message is written. The type in the git workflow below comes from that skill.
 - `modern-web-guidance` (`.agents/skills/modern-web-guidance/SKILL.md`) is for HTML, CSS, and client-side JS. Search, then retrieve, with `pnpm dlx modern-web-guidance@latest`.
 
 ## Workflow
