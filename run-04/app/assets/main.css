@@ -1,0 +1,20 @@
+/* Hand-written styles. No CSS framework. */
+:root {
+  color-scheme: light dark;
+  --bg: light-dark(#fafafa, #16181c);
+  --panel: light-dark(#fff, #1f2228);
+  --line: light-dark(#ddd, #333842);
+  --muted: light-dark(#666, #9aa0aa);
+  --accent: light-dark(#2457d6, #7aa2ff);
+  --drop: light-dark(#e6eeff, #26314a);
+  font-family: system-ui, sans-serif;
+  font-size: 14px;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); }
+button, select { font: inherit; }
+button { cursor: pointer; border: 1px solid var(--line); background: var(--panel); border-radius: 4px; padding: 2px 8px; }
+button[aria-pressed="true"] { background: var(--accent); color: white; border-color: var(--accent); }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 8px; min-width: 0; overflow: auto; }
+.muted { color: var(--muted); }
+.drop-target { background: var(--drop); outline: 2px dashed var(--accent); }
