@@ -1,0 +1,11 @@
+{
+  "widgets": [
+    { "id": "w-next", "type": "next", "x": 1, "y": 1, "w": 6, "h": 2, "settings": {} },
+    { "id": "w-counts", "type": "counts", "x": 7, "y": 1, "w": 6, "h": 2, "settings": { "by": "column" } },
+    { "id": "w-board", "type": "board", "x": 1, "y": 3, "w": 8, "h": 2, "settings": { "level": "task", "mine": false } },
+    { "id": "w-blockers", "type": "blockers", "x": 9, "y": 3, "w": 4, "h": 2, "settings": { "includeDone": false } },
+    { "id": "w-activity", "type": "activity", "x": 1, "y": 5, "w": 4, "h": 2, "settings": { "limit": 8 } },
+    { "id": "w-upcoming", "type": "upcoming", "x": 5, "y": 5, "w": 4, "h": 2, "settings": { "days": 7 } },
+    { "id": "w-touched", "type": "touched", "x": 9, "y": 5, "w": 4, "h": 2, "settings": { "limit": 6 } }
+  ]
+}
