@@ -3,7 +3,7 @@
 // column on an actor is a `;` list of `spaceId:role` pairs, so the route
 // splits it and joins the names from the spaces table.
 import { all, get } from '../utils/db'
-import { currentUserId } from '../../utils/current-user'
+import { currentUserId } from '../utils/current-user'
 
 export default defineEventHandler(async (event) => {
   const actorId = await currentUserId(event)
